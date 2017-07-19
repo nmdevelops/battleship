@@ -6,14 +6,6 @@
 var p1Fleet = [];
 // var p2Fleet = [];
 
-var Strengths = {
-  carrier: 5,
-  battleship: 4,
-  cruiser: 3,
-  submarine: 3,
-  destroyer: 2
-}
-
 function Ship(type, strength, location, hits) {
   this.type = type;
   this.strength = strength;
@@ -24,28 +16,30 @@ function Ship(type, strength, location, hits) {
 // var newShip = new Ship ($("input#carrier-grid[name=carrier]").val(), )
 
 var gameSetup = (function() {
-  console.log("Is that it...?");
   $(".P1-inputs input").each(function() {
-    inputtedType = $(this).attr("name");
-    console.log(inputtedType);
+    var typeStrengthString = $(this).attr("name");
+    var stringSplit = typeStrengthString.split(",");
+    var shipType = stringSplit [0];
+    var shipStrength = stringSplit [1];
+    var gridString = $(this).val();
+    var shipLocation = gridString.split(", ");
+    var hits = 0;
+    console.log(shipType);
+    console.log(shipStrength);
+    console.log(shipLocation);
+    console.log(hits);
   })
 
 });
 
-var grabGrids = (function() {
-  var testShip = $("input#carrier-grid").val();
-  var shipLocation = testShip.split();
-  console.log(testShip);
-  console.log(shipLocation);
-
-})
 
 
 
 
 
 
-
+// TEST INPUTS
+// A1, A2, A3, A4, A5
 
 // =================================
 // ||                             ||
@@ -54,7 +48,6 @@ var grabGrids = (function() {
 // =================================
 $(document).ready(function() {
   $("button#P1-input-test").click(function() {
-    grabGrids();
     gameSetup();
   })
   $("form#gameSetup").submit(function(event) {
