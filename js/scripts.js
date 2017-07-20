@@ -4,9 +4,10 @@
 // ||                             ||
 // =================================
 var p1Fleet = [];
-// var p2Fleet = [];
+var p2Fleet = [];
 
-function Ship (type, strength, grids, hits) {
+function Ship (commander, type, strength, grids, hits) {
+  this.commander = commander;
   this.type = type;
   this.strength = strength;
   this.grids = grids;
@@ -14,40 +15,57 @@ function Ship (type, strength, grids, hits) {
 }
 
 var gameSetup = (function() {
-  var shipType;
-  var shipStrength;
-  var shipGrids;
-  var shipHits;
+  // var shipCommander;
+  // var shipType;
+  // var shipStrength;
+  // var shipGrids;
+  // var shipHits;
 
-    $(".P1-inputs input").each(function() {
-      typeStrengthString = $(this).attr("name");
-      stringSplit = typeStrengthString.split(",");
-      shipType = stringSplit [0];
-      shipStrength = stringSplit [1];
-      gridString = $(this).val();
-      shipGrids = gridString.split(", ");
-      shipHits = 0;
+    $(".inputs input").each(function() {
 
-      var newShip = new Ship (shipType, shipStrength, shipGrids, shipHits)
+      var commanderTypeStrengthString = $(this).attr("name");
+      var stringSplit = commanderTypeStrengthString.split(",");
+      var shipCommander = stringSplit [0];
+      var shipType = stringSplit [1];
+      var shipStrength = stringSplit [2];
+      var gridString = $(this).val();
+      var shipGrids = gridString.split(", ");
+      var shipHits = 0;
+
+      var newShip = new Ship (shipCommander, shipType, shipStrength, shipGrids, shipHits)
+      console.log(shipCommander);
       console.log(shipType);
       console.log(shipStrength);
       console.log(shipGrids);
       console.log(shipHits);
-
-      p1Fleet.push(newShip);
-
-
-
+        if (newShip.commander === "P1") {
+          p1Fleet.push(newShip);
+        } else {
+          p2Fleet.push(newShip);
+        }
     })
+// P1 Display Fleet
     for (var i = 0; i < p1Fleet.length; i++) {
       var displayType = p1Fleet [i].type;
       var displayGrids = p1Fleet [i].grids.toString();
 
-      $(".shipShow ul").append("<li>" + displayType + displayGrids + "</li>")
+      $(".P1-shipShow ul").append("<li>" + displayType + displayGrids + "</li>")
+    }
+// P2 Display Fleet
+    for (var i = 0; i < p2Fleet.length; i++) {
+      var displayType = p2Fleet [i].type;
+      var displayGrids = p2Fleet [i].grids.toString();
+
+      $(".P2-shipShow ul").append("<li>" + displayType + displayGrids + "</li>")
     }
 
 });
 
+var p1Confirm = (function() {
+  $(".P1-inputs").hide();
+  $(".P2-inputs").show();
+
+})
 
 
 
@@ -63,10 +81,18 @@ var gameSetup = (function() {
 // ||                             ||
 // =================================
 $(document).ready(function() {
-  $("button#P1-input-test").click(function() {
+  $("button#button-game-setup").click(function() {
+    $(".P1-inputs").show();
+    $(".splah").hide();
+
+  })
+  $("button#p1-shipShow-confirm").click(function() {
+    p1Confirm();
+  })
+  $("button#p2-shipShow-confirm").click(function() {
     gameSetup();
   })
-  $("form#gameSetup").submit(function(event) {
+    $("form#gameSetup").submit(function(event) {
     prevent.eventDefault();
 
   })

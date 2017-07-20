@@ -22,7 +22,7 @@ _This is an online version of the classic Battleship game.  It is a 2 player dep
 
 | 06 | Display P1 ship locations on playing board | Grid Coord | span id=P1-Occupado |
 <!-- | 07 | Display "P1 Board Confirm" button (click handler) | NONE | NONE | -->
-| 08 | Hide P1 setup inputs | CLICK | Do the damn things |
+<!-- | 08 | Hide P1 setup inputs | CLICK | Do the damn things | -->
 | 09 | Hide P1 ship locations on playing board | NONE | NONE |
 | 10 | Show P2 setup inputs | CLICK | Do the damn things |
 | 11 | Collect P2 Ship inputs
