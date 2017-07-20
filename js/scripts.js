@@ -6,10 +6,10 @@
 var p1Fleet = [];
 // var p2Fleet = [];
 
-function Ship (type, strength, location, hits) {
+function Ship (type, strength, grids, hits) {
   this.type = type;
   this.strength = strength;
-  this.location = location;
+  this.grids = grids;
   this.hits = 0;
 }
 
@@ -36,7 +36,16 @@ var gameSetup = (function() {
 
       p1Fleet.push(newShip);
 
+
+
     })
+    for (var i = 0; i < p1Fleet.length; i++) {
+      var displayType = p1Fleet [i].type;
+      var displayGrids = p1Fleet [i].grids.toString();
+
+      $(".shipShow ul").append("<li>" + displayType + displayGrids + "</li>")
+    }
+
 });
 
 

@@ -17,9 +17,11 @@ _This is an online version of the classic Battleship game.  It is a 2 player dep
 <!-- | 04 | Collect P1 setup inputs |  A1, A2, A3    |  log(destroyer location)   | -->
 <!-- | 06 | Instantiate Player Ships | | | -->
 <!-- | 07 | Put ship objects into fleet | | | -->
-| 05 | Display 10 x 10 grid playing board | NONE | NONE |
+| FK05 | Display 10 x 10 grid playing board | NONE | NONE |
+<!-- | 06 | Display P1 ship locations in unordered list items | Grid Coord | $(".shipShow ul") | -->
+
 | 06 | Display P1 ship locations on playing board | Grid Coord | span id=P1-Occupado |
-| 07 | Display "P1 Board Confirm" button (click handler) | NONE | NONE |
+<!-- | 07 | Display "P1 Board Confirm" button (click handler) | NONE | NONE | -->
 | 08 | Hide P1 setup inputs | CLICK | Do the damn things |
 | 09 | Hide P1 ship locations on playing board | NONE | NONE |
 | 10 | Show P2 setup inputs | CLICK | Do the damn things |
