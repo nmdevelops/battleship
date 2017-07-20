@@ -19,10 +19,6 @@ var gameSetup = (function() {
   var shipGrids;
   var shipHits;
 
-
-
-  for (var i = 0; i <= 4; i++) {
-
     $(".P1-inputs input").each(function() {
       typeStrengthString = $(this).attr("name");
       stringSplit = typeStrengthString.split(",");
@@ -32,19 +28,15 @@ var gameSetup = (function() {
       shipGrids = gridString.split(", ");
       shipHits = 0;
 
+      var newShip = new Ship (shipType, shipStrength, shipGrids, shipHits)
       console.log(shipType);
       console.log(shipStrength);
       console.log(shipGrids);
       console.log(shipHits);
+
+      p1Fleet.push(newShip);
+
     })
-
-    p1Fleet [i] = new Ship (shipType, shipStrength, shipGrids, shipHits)
-
-  }
-
-
-
-
 });
 
 
