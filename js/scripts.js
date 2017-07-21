@@ -74,6 +74,7 @@ var p1Confirm = (function() {
 
 // TEST INPUTS
 // A1, A2, A3, A4, A5
+// B1, B2, B3, B4, B5
 
 // =================================
 // ||                             ||
@@ -83,7 +84,7 @@ var p1Confirm = (function() {
 $(document).ready(function() {
   $("button#button-game-setup").click(function() {
     $(".P1-inputs").show();
-    $(".splah").hide();
+    $(".splash").hide();
 
   })
   $("button#p1-shipShow-confirm").click(function() {
