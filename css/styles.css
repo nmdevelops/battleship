@@ -1,5 +1,5 @@
 .playingBoard {
-	position:relative;
+	position: absolute;
 	margin:0 auto 2em auto;
 	width:500px;
 	height:500px;
@@ -17,10 +17,18 @@
   color: white;
 }
 
+.container {
+	padding: 40px;
+}
+/*.playingBoard {
+	padding: 30px;
+}*/
+
 #label {
   background: gray;
 }
 
-.P1-inputs, .P2-inputs, .playingBoard {
+.P1-inputs, .P2-inputs, .playingBoard, .p1-gamePlay {
   display: none;
+	padding: 30px;
 }

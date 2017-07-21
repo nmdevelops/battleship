@@ -6,9 +6,17 @@
 var p1Fleet = [];
 var p2Fleet = [];
 var whoseTurn = 1;
+var players = [];
+// var Game = {
+//
+// }
 
+function Player(commander, shipsSunk) {
+  this.commander = commander;
+  this.shipsSunk = shipsSunk;
+}
 
-function Ship (commander, type, strength, grids, hits) {
+function Ship(commander, type, strength, grids, hits) {
   this.commander = commander;
   this.type = type;
   this.strength = strength;
@@ -17,49 +25,50 @@ function Ship (commander, type, strength, grids, hits) {
 }
 
 var gameSetup = (function() {
-  // var shipCommander;
-  // var shipType;
-  // var shipStrength;
-  // var shipGrids;
-  // var shipHits;
 
-    $(".inputs input").each(function() {
+  players[0] = new Player("P1", 0);
+  players[1] = new Player("P2", 0);
+  $(".P2-inputs").hide();
+  $(".p1-gamePlay").show();
 
-      var commanderTypeStrengthString = $(this).attr("name");
-      var stringSplit = commanderTypeStrengthString.split(",");
-      var shipCommander = stringSplit [0];
-      var shipType = stringSplit [1];
-      var shipStrength = stringSplit [2];
-      var gridString = $(this).val();
-      var shipGrids = gridString.split(", ");
-      var shipHits = 0;
 
-      var newShip = new Ship (shipCommander, shipType, shipStrength, shipGrids, shipHits)
-      console.log(shipCommander);
-      console.log(shipType);
-      console.log(shipStrength);
-      console.log(shipGrids);
-      console.log(shipHits);
-        if (newShip.commander === "P1") {
-          p1Fleet.push(newShip);
-        } else {
-          p2Fleet.push(newShip);
-        }
-    })
-// P1 Display Fleet
-    for (var i = 0; i < p1Fleet.length; i++) {
-      var displayType = p1Fleet [i].type;
-      var displayGrids = p1Fleet [i].grids.toString();
+  $(".inputs input").each(function() {
 
-      $(".P1-shipShow ul").append("<li>" + displayType + displayGrids + "</li>")
+    var commanderTypeStrengthString = $(this).attr("name");
+    var stringSplit = commanderTypeStrengthString.split(",");
+    var shipCommander = stringSplit[0];
+    var shipType = stringSplit[1];
+    var shipStrength = parseInt(stringSplit[2]);
+    var gridString = $(this).val();
+    var shipGrids = gridString.split(", ");
+    var shipHits = 0;
+
+    var newShip = new Ship(shipCommander, shipType, shipStrength, shipGrids, shipHits)
+    console.log(shipCommander);
+    console.log(shipType);
+    console.log(shipStrength);
+    console.log(shipGrids);
+    console.log(shipHits);
+    if (newShip.commander === "P1") {
+      p1Fleet.push(newShip);
+    } else {
+      p2Fleet.push(newShip);
     }
-// P2 Display Fleet
-    for (var n = 0; n < p2Fleet.length; n++) {
-      var displayType = p2Fleet [n].type;
-      var displayGrids = p2Fleet [n].grids.toString();
+  })
+  // P1 Display Fleet
+  for (var i = 0; i < p1Fleet.length; i++) {
+    var displayType = p1Fleet[i].type;
+    var displayGrids = p1Fleet[i].grids.toString();
 
-      $(".P2-shipShow ul").append("<li>" + displayType + displayGrids + "</li>")
-    }
+    $(".P1-shipShow ul").append("<li>" + displayType + displayGrids + "</li>")
+  }
+  // P2 Display Fleet
+  for (var n = 0; n < p2Fleet.length; n++) {
+    var displayType = p2Fleet[n].type;
+    var displayGrids = p2Fleet[n].grids.toString();
+
+    $(".P2-shipShow ul").append("<li>" + displayType + displayGrids + "</li>")
+  }
 
 });
 
@@ -83,13 +92,26 @@ var isHit = (function() {
       } else {
         console.log("HIT! at firing grid for " + "Fleet Vessel " + h);
         p1Fleet[h].hits += 1;
-      }
+
+        // Determine if ship is Sunk
+        if (p1Fleet[h].hits === p1Fleet[h].strength) {
+          console.log("Ya'll are gonna fuckin drown on that " + p1Fleet[h].type);
+          players[0].shipsSunk += 1;
+        }
+        // Determine if game is over
+        if (players[0].shipsSunk === 5) {
+          console.log("You sunk their Fleet!");
+        }
+      } //This is the else end
+
 
 
     }
-  }
 
+  }
 })
+
+
 
 
 

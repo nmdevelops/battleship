@@ -31,10 +31,10 @@ _This is an online version of the classic Battleship game.  It is a 2 player dep
 | 14 | Show P1 playing board display | NONE | NONE |
 <!-- | 15 | Display P1 firing coordinate blank input | Coordinate from board | log | -->
 <!-- | 16 | Collect P1 firing coordinates | | | -->
-| 17 | Check input from 14 for hit or miss | NONE | True/False |
+<!-- | 17 | Check input from 14 for hit or miss | NONE | True/False | -->
 | 18 | When isHit = true display "Hit!" | True | "Hit!" |
 | 19 | When isHit = false display "Miss!" | False | "Miss!" |
-| 20 | When isHit = true run isSunk | True | log(isSunk) |
+<!-- | 20 | When isHit = true run isSunk | True | log(isSunk) | -->
 | 21 | isSunk = True | True | "Sunk!" |
 | 22 | isSunk = True run isShipType | True | log(isShipType) |
 | 23 | Display type of ship sunk | True | You sunk my fuckin carrier! |
