@@ -24,6 +24,7 @@ function Ship(commander, type, strength, grids, hits) {
   this.hits = 0;
 }
 
+
 var gameSetup = (function() {
 
   players[0] = new Player("P1", 0);
@@ -132,9 +133,11 @@ $(document).ready(function() {
     $(".playingBoard").show();
 
   })
+
   $("button#p1-shipShow-confirm").click(function() {
     p1Confirm();
   })
+
   $("button#p2-shipShow-confirm").click(function() {
     gameSetup();
   })
@@ -145,11 +148,16 @@ $(document).ready(function() {
   })
 
 
-  $("form#gameSetup").submit(function(event) {
-    prevent.eventDefault();
 
+
+  $("form#gameSetup").submit(function(event) {
+    event.preventDefault();
   })
 
 
 
+  $("a").click(function(event){
+    alert(this.children[0].dataset.cell);
+    event.preventDefault();
+  });
 })
