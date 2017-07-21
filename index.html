@@ -14,7 +14,7 @@
 
     <div class="jumbotron">
       <h1>Battleship, A New Frontier!!</h1>
-      <img src="img/battleship.jpg" alt="A fuckin ship">
+      <!-- <img src="img/ship.jpg" alt="A fuckin ship"> -->
     </div>
     <h3>Rules:</h3>
     <p>To play this online version of battleship 2 players must participate. Select your coordinates on the grid provided. The coordinates will represent the different ships and must be horizontal or vertical (no diagonal placement). You will select spaces
@@ -27,13 +27,9 @@
 
 
 
-    <div class="P1-inputs">
-      <div class="form-group">
-        <label>Carrier Grids  <input id="carrier-grid" type="text" name="carrier,5" size="19" maxlength="18" placeholder="A1, A2, A3, A4, A5"></label>
-      </div>
 
     <div class="splash">
-      <button id="button-game-setup" type="button" class="btn-danger">Game Setup</button>
+      <button id="button-game-setup" type="button" class="btn">Game Setup</button>
     </div>
 
 
@@ -72,6 +68,7 @@
 
 
       </div>
+
       <div class="playingBoard">
         <div id="label" style="top: 50px; left: 0px;"><p>A</p>
         </div>
@@ -366,6 +363,14 @@
     </form>
 
     <!-- Do not forget to ask other play to step away when building board -->
+    <div class="p1-gameplay">
+        <div class="form-group">
+          <label>Enter firing coordinates!  <input id="p1-firing-grid" type="text"></label>
+        </div>
+        <button id="fireTorpedos" type="submit" class="btn-danger" >FIRE!</button>
+    </div>
+
+
   </div>
 </body>
 

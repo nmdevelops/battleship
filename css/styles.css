@@ -19,7 +19,8 @@
 
 #label {
   background: gray;
+}
 
-.P1-inputs, .P2-inputs {
+.P1-inputs, .P2-inputs, .playingBoard {
   display: none;
 }

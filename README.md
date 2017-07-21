@@ -24,13 +24,13 @@ _This is an online version of the classic Battleship game.  It is a 2 player dep
 <!-- | 07 | Display "P1 Board Confirm" button (click handler) | NONE | NONE | -->
 <!-- | 08 | Hide P1 setup inputs | CLICK | Do the damn things | -->
 | 09 | Hide P1 ship locations on playing board | NONE | NONE |
-| 10 | Show P2 setup inputs | CLICK | Do the damn things |
-| 11 | Collect P2 Ship inputs
+<!-- | 10 | Show P2 setup inputs | CLICK | Do the damn things | -->
+<!-- | 11 | Collect P2 Ship inputs -->
 | 12 | Display P2 ship locations on playing board | Grid Coord | span id=P2-Occupado |
-| 13 | "Start Game" button (submit) | NONE | NONE |
+<!-- | 13 | "Start Game" button (submit) | NONE | NONE | -->
 | 14 | Show P1 playing board display | NONE | NONE |
-| 15 | Display P1 coordinate blank input | Coordinate from board | log |
-| 16 | Collect P1 firing coordinates | | |
+<!-- | 15 | Display P1 firing coordinate blank input | Coordinate from board | log | -->
+<!-- | 16 | Collect P1 firing coordinates | | | -->
 | 17 | Check input from 14 for hit or miss | NONE | True/False |
 | 18 | When isHit = true display "Hit!" | True | "Hit!" |
 | 19 | When isHit = false display "Miss!" | False | "Miss!" |

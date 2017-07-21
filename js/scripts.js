@@ -67,7 +67,11 @@ var p1Confirm = (function() {
 
 })
 
-
+var isHit = (function() {
+  var firingGrid = $("input#p1-firing-grid").val();
+  console.log(firingGrid);
+  
+})
 
 
 
@@ -85,6 +89,7 @@ $(document).ready(function() {
   $("button#button-game-setup").click(function() {
     $(".P1-inputs").show();
     $(".splash").hide();
+    $(".playingBoard").show();
 
   })
   $("button#p1-shipShow-confirm").click(function() {
@@ -93,8 +98,18 @@ $(document).ready(function() {
   $("button#p2-shipShow-confirm").click(function() {
     gameSetup();
   })
-    $("form#gameSetup").submit(function(event) {
+  $("button#fireTorpedos").click(function() {
+    console.log("Fire le missiles!");
+    isHit();
+
+  })
+
+
+  $("form#gameSetup").submit(function(event) {
     prevent.eventDefault();
 
   })
+
+
+
 })
