@@ -14,6 +14,7 @@ function Ship (commander, type, strength, grids, hits) {
   this.hits = 0;
 }
 
+
 var gameSetup = (function() {
   // var shipCommander;
   // var shipType;
@@ -85,16 +86,22 @@ $(document).ready(function() {
   $("button#button-game-setup").click(function() {
     $(".P1-inputs").show();
     $(".splash").hide();
-
   })
+
   $("button#p1-shipShow-confirm").click(function() {
     p1Confirm();
   })
+
   $("button#p2-shipShow-confirm").click(function() {
     gameSetup();
   })
-    $("form#gameSetup").submit(function(event) {
-    prevent.eventDefault();
 
+  $("form#gameSetup").submit(function(event) {
+    event.preventDefault();
   })
+
+  $("a").click(function(event){
+    alert(this.children[0].dataset.cell);
+    event.preventDefault();
+  });
 })
