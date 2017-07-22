@@ -14,10 +14,10 @@ var currentPlayer;
 //
 // }
 
-function Player(commander, shipsSunk, guesses, hits, misses) {
+function Player(commander, fleet, shipsSunk, hits, misses) {
   this.commander = commander;
+  this.fleet = [];
   this.shipsSunk = shipsSunk;
-  this.guesses = [];
   this.hits = [];
   this.misses = [];
 }
@@ -31,15 +31,41 @@ function Ship(commander, type, strength, grids, hits) {
 }
 
 
+var retrieveBoardState = (function() {
+  // format board for hits
+  $(".playingBoard div").css({"background-color": 'blue'});
+
+  players[currentPlayer].hits.forEach(function(hit) {
+    // $('[data-cell=' + hit + ']').removeAttr( 'style' );
+    $('[data-cell=' + hit + ']').css({
+      "background-color": 'red'
+    });
+  })
+  // format board for misses
+  players[currentPlayer].misses.forEach(function(miss) {
+    // $('[data-cell=' + miss + ']').removeAttr( 'style' );
+    $('[data-cell=' + miss + ']').css({
+      "background-color": 'teal'
+    });
+  })
+})
+
+// Need a timeout to get this to work nicely
+//   $("#activeMessage").empty();
+var updateGameSpace = (function() {
+  $("#activePlayer").text(players[currentPlayer].commander);
+  retrieveBoardState(currentPlayer);
+})
+
 var gameSetup = (function() {
 
-  players[0] = new Player("P1", 0);
-  players[1] = new Player("P2", 0);
+  players[0] = new Player("P1", [], 0, [], []);
+  players[1] = new Player("P2", [], 0, [], []);
   $(".P2-inputs").hide();
   $(".p1-gamePlay").show();
 
 
-
+  //create ships and assign to fleets in players array
   $(".inputs input").each(function() {
 
     var commanderTypeStrengthString = $(this).attr("name");
@@ -54,22 +80,22 @@ var gameSetup = (function() {
     var newShip = new Ship(shipCommander, shipType, shipStrength, shipGrids, shipHits)
 
     if (newShip.commander === "P1") {
-      p1Fleet.push(newShip);
+      players[0].fleet.push(newShip);
     } else {
-      p2Fleet.push(newShip);
+      players[1].fleet.push(newShip);
     }
   })
   // P1 Display Fleet
-  for (var i = 0; i < p1Fleet.length; i++) {
-    var displayType = p1Fleet[i].type;
-    var displayGrids = p1Fleet[i].grids.toString();
+  for (var i = 0; i < players[0].fleet.length; i++) {
+    var displayType = players[0].fleet[i].type;
+    var displayGrids = players[0].fleet[i].grids.toString();
 
     $(".P1-shipShow ul").append("<li>" + displayType + displayGrids + "</li>")
   }
   // P2 Display Fleet
-  for (var n = 0; n < p2Fleet.length; n++) {
-    var displayType = p2Fleet[n].type;
-    var displayGrids = p2Fleet[n].grids.toString();
+  for (var n = 0; n < players[1].fleet.length; n++) {
+    var displayType = players[1].fleet[n].type;
+    var displayGrids = players[1].fleet[n].grids.toString();
 
     $(".P2-shipShow ul").append("<li>" + displayType + displayGrids + "</li>")
   }
@@ -91,7 +117,7 @@ var isWhoseTurn = (function() {
   } else {
     currentPlayer = 1
   }
-  $("#activePlayer").text(players[currentPlayer].commander);
+  // $("#activePlayer").text(players[currentPlayer].commander);
 })
 
 var isHit = (function() {
@@ -100,36 +126,27 @@ var isHit = (function() {
   var firingGridIsHit = 0;
   var shipTypeHit;
 
-  if (whoseTurn % 2 != 0) {
-    for (var h = 0; h < p1Fleet.length; h++) {
-      var fuck = p1Fleet[h].grids.indexOf(firingGrid);
-      if (fuck < 0) {
-        console.log("no fucks given");
-      } else {
-        firingGridIsHit += 1;
-        p1Fleet[h].hits += 1;
-        vesselHit = h;
-        console.log(vesselHit);
-        shipTypeHit = p1Fleet[h].type;
-      } //This is the else end
-    } //this ends the for loop
 
-
-
-    // Determine if ship is Sunk
-    if (p1Fleet[vesselHit].hits === p1Fleet[vesselHit].strength) {
-      $("#sunkMessage").text("Ya'll are gonna fuckin drown on that " + p1Fleet[vesselHit].type);
-      players[0].shipsSunk += 1;
-    }
-    // Determine if game is over
-    if (players[0].shipsSunk === 5) {
-      console.log("You sunk their Fleet!");
-    }
+  for (var h = 0; h < players[currentPlayer].fleet.length; h++) {
+    var fuck = players[currentPlayer].fleet[h].grids.indexOf(firingGrid);
+    if (fuck < 0) {
+      console.log("no fucks given");
+    } else {
+      firingGridIsHit += 1;
+      players[currentPlayer].fleet[h].hits += 1;
+      vesselHit = h;
+      console.log(vesselHit);
+      shipTypeHit = players[currentPlayer].fleet[h].type;
+    } //This is the else end
+  } //end for loop
 
 
 
 
-  } //player 1 conditional close
+
+
+
+
 
   // These actions take place if a hit occured
   if (firingGridIsHit > 0) {
@@ -138,11 +155,23 @@ var isHit = (function() {
     } else {
       players[1].hits.push(firingGrid);
     }
+
     $("#activeMessage").text("HIT! at firing grid for " + "Fleet Vessel " + vesselHit);
     // Turns Cell RED to indicate Hit
     $('[data-cell=' + firingGrid + ']').css({
       "background-color": 'red'
     });
+
+    // Determine if ship is Sunk
+    if (players[currentPlayer].fleet[vesselHit].hits === players[currentPlayer].fleet[vesselHit].strength) {
+      $("#sunkMessage").text("Ya'll are gonna fuckin drown on that " + players[currentPlayer].fleet[vesselHit].type);
+      players[0].shipsSunk += 1;
+    }
+    // Determine if game is over
+    if (players[0].shipsSunk === 5) {
+      console.log("You sunk their Fleet!");
+    }
+
     //Advance player Turn
     whoseTurn += 1;
     isWhoseTurn();
@@ -171,21 +200,8 @@ var isHit = (function() {
 
 })
 
-var retrieveBoardState = (function(currentPlayer) {
-  // format board for hits
-  players[currentPlayer].hits.forEach(function(hit) {
-    $('[data-cell=' + hit + ']').css({
-      "background-color": 'red'})
-  })
-  // format board for misses
-  players[currentPlayer].misses.forEach(function(miss) {
-    $('[data-cell=' + miss + ']').css({
-      "background-color": 'teal'})
-  })
 
 
-
-})
 
 
 
@@ -216,6 +232,8 @@ $(document).ready(function() {
   $("button#p2-shipShow-confirm").click(function() {
     isWhoseTurn();
     gameSetup();
+    updateGameSpace();
+
   })
 
   // Testing input replaced by graphic interaction
@@ -239,6 +257,7 @@ $(document).ready(function() {
     firingGrid = this.children[0].dataset.cell;
     isWhoseTurn();
     isHit();
+    updateGameSpace();
     event.preventDefault();
   });
 })
