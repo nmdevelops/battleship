@@ -24,7 +24,7 @@
 	padding: 30px;
 }*/
 
-#label {
+[data-label] {
   background: gray;
 }
 
