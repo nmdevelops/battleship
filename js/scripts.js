@@ -8,6 +8,7 @@ var players = [];
 var firingGrid;
 var vesselHit;
 var currentPlayer;
+var currentOpponent;
 
 function Player(commander, fleet, shipsSunk, hits, misses) {
   this.commander = commander;
@@ -52,7 +53,7 @@ var gameSetup = (function() {
   players[0] = new Player("P1", [], 0, [], []);
   players[1] = new Player("P2", [], 0, [], []);
   $(".P2-inputs").hide();
-  $(".p1-gamePlay").show();
+  $(".gamePlay").show();
 //Collect input values for ship placement
   $(".inputs input").each(function() {
     var commanderTypeStrengthString = $(this).attr("name");
@@ -63,6 +64,9 @@ var gameSetup = (function() {
     var gridString = $(this).val();
     var shipGrids = gridString.split(", ");
     var shipHits = 0;
+
+//Test inputs for demonstration
+
 //Instantiate ship objects
     var newShip = new Ship(shipCommander, shipType, shipStrength, shipGrids, shipHits)
 // and push to correct fleets
@@ -99,9 +103,11 @@ var p1Confirm = (function() {
 //Returns an index to be called into other functions that are player specific
 var isWhoseTurn = (function() {
   if (whoseTurn % 2 != 0) {
-    currentPlayer = 0
+    currentPlayer = 0;
+    currentOpponent = 1;
   } else {
-    currentPlayer = 1
+    currentPlayer = 1;
+    currentOpponent = 0;
   }
 })
 
@@ -110,22 +116,22 @@ var isHit = (function() {
   var firingGridIsHit = 0;
   var shipTypeHit;
 //Determines if a hit exists
-  for (var h = 0; h < players[currentPlayer].fleet.length; h++) {
-    var torpedosAway = players[currentPlayer].fleet[h].grids.indexOf(firingGrid);
+  for (var h = 0; h < players[currentOpponent].fleet.length; h++) {
+    var torpedosAway = players[currentOpponent].fleet[h].grids.indexOf(firingGrid);
     if (torpedosAway >= 0) {
       firingGridIsHit += 1;
-      players[currentPlayer].fleet[h].hits += 1;
+      players[currentOpponent].fleet[h].hits += 1;
       vesselHit = h;
-      shipTypeHit = players[currentPlayer].fleet[h].type;
+      shipTypeHit = players[currentOpponent].fleet[h].type;
     } //This is the if end
   } //end for loop
 
 // These actions take place if a hit exists
   if (firingGridIsHit > 0) {
     if (currentPlayer === 0) {
-      players[0].hits.push(firingGrid);
-    } else {
       players[1].hits.push(firingGrid);
+    } else {
+      players[0].hits.push(firingGrid);
     }
 
   $("#activeMessage").text("HIT!");
@@ -133,13 +139,14 @@ var isHit = (function() {
   $('[data-cell=' + firingGrid + ']').css({"background-color": 'red'});
 
 // Determine if ship is Sunk
-    if (players[currentPlayer].fleet[vesselHit].hits === players[currentPlayer].fleet[vesselHit].strength) {
-      $("#sunkMessage").text("Enemy" + players[currentPlayer].fleet[vesselHit].type + "sunk!");
-      players[currentPlayer].shipsSunk += 1;
+    if (players[currentOpponent].fleet[vesselHit].hits === players[currentOpponent].fleet[vesselHit].strength) {
+      $("#sunkMessage").text("Enemy" + players[currentOpponent].fleet[vesselHit].type + "sunk!");
+      players[currentOpponent].shipsSunk += 1;
     }
 // Determine if game is over
-    if (players[currentPlayer].shipsSunk === 5) {
+    if (players[currentOpponent].shipsSunk === 5) {
       $("#gameWon").text("You sunk their Fleet!  GAME OVER!");
+      // $("gamePlay").hide();
     }
 //Advance player Turn
     whoseTurn += 1;
@@ -159,6 +166,8 @@ var isHit = (function() {
     isWhoseTurn();
   }
 })
+
+
 // TEST INPUTS
 // A1, A2, A3, A4, A5
 // B1, B2, B3, B4, B5

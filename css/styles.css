@@ -32,7 +32,7 @@ float: right;
 	padding: 30px;
 }*/
 
-.P1-inputs, .P2-inputs, .playingBoard, .p1-gamePlay {
+.P1-inputs, .P2-inputs, .playingBoard, .gamePlay {
   display: none;
 	padding: 30px;
 }

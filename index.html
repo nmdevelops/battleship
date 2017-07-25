@@ -100,517 +100,502 @@
     </div>
     <!-- This code was added to display P2 fleet inputs and layout for review before confirmation <- -->
 
-
-
-
-
-
-
-    <div class="p1-gamePlay">
-      <h2><span id="activePlayer"></span></h2>
-      <h3><span id="activeMessage"></span></h3>
-      <h3><span id="sunkMessage"></span></h3>
-      <h1><span id="gameWon"></span></h1>
-      <!-- test input removed using graphic through js
-      <div class="form-group">
-        <label>Enter firing coordinates!  <input id="p1-firing-grid" type="text" size="3" maxlength="2"></label>
-      </div>
-      <button id="fireTorpedos" type="submit" class="btn-danger">FIRE!</button> -->
-    </div>
-
-
-
-    <div class="playingBoard">
-
-      <div data-label="label" style="top: 50px; left: 0px;">
-        <p>A</p>
-      </div>
-      <div data-label="label" style="top: 100px; left: 0px;">
-        <p>B</p>
-      </div>
-      <div data-label="label" style="top: 150px; left: 0px;">
-        <p>C</p>
-      </div>
-      <div data-label="label" style="top: 200px; left: 0px;">
-        <p>D</p>
-      </div>
-      <div data-label="label" style="top: 250px; left: 0px;">
-        <p>E</p>
-      </div>
-      <div data-label="label" style="top: 300px; left: 0px;">
-        <p>F</p>
-      </div>
-      <div data-label="label" style="top: 350px; left: 0px;">
-        <p>G</p>
-      </div>
-      <div data-label="label" style="top: 400px; left: 0px;">
-        <p>H</p>
-      </div>
-      <div data-label="label" style="top: 450px; left: 0px;">
-        <p>I</p>
-      </div>
-      <div data-label="label" style="top: 500px; left: 0px;">
-        <p>J</p>
-      </div>
-      <div data-label="label" style="top: 0px; left: 50px;">
-        <p>1</p>
-      </div>
-
-      <!-- added an href to each "row" and made them into a data-cell, code is a little tedious but needs to be added to each "row and column" <- -->
-
-      <!-- NM: Added anchor tag using 2 find and replace searches
-      NM: Renamed cells to reflect actual coordinate value on board -->
-      <a href="#">
-        <div data-cell="A1" style="top: 50px; left: 50px;">
-        </div>
-      </a>
-      <a href="#">
-        <div data-cell="B1" style="top: 100px; left: 50px;">
-        </div>
-      </a>
-      <a href="#">
-        <div data-cell="C1" style="top: 150px; left: 50px;">
-        </div>
-      </a>
-      <a href="#">
-        <div data-cell="D1" style="top: 200px; left: 50px;">
-        </div>
-      </a>
-      <a href="#">
-        <div data-cell="E1" style="top: 250px; left: 50px;">
-        </div>
-      </a>
-      <a href="#">
-
-        <div data-cell="F1" style="top: 300px; left: 50px;">
-        </div>
-      </a>
-      <a href="#">
-
-        <div data-cell="G1" style="top: 350px; left: 50px;">
-        </div>
-      </a>
-      <a href="#">
-
-        <div data-cell="H1" style="top: 400px; left: 50px;">
-        </div>
-      </a>
-      <a href="#">
-
-        <div data-cell="I1" style="top: 450px; left: 50px;">
-        </div>
-      </a>
-      <a href="#">
-
-        <div data-cell="J1" style="top: 500px; left: 50px;">
-        </div>
-
-      </a>
-      <div data-label="label" style="top: 0px; left: 100px;">
-        <p>2</p>
-      </div>
-      <a href="#">
-        <div data-cell="A2" style="top: 50px; left: 100px;">
-        </div>
-      </a>
-      <a href="#">
-
-        <div data-cell="B2" style="top: 100px; left: 100px;">
-        </div>
-      </a>
-      <a href="#">
-
-        <div data-cell="C2" style="top: 150px; left: 100px;">
-        </div>
-      </a>
-      <a href="#">
-        <div data-cell="D2" style="top: 200px; left: 100px;">
-        </div>
-      </a>
-      <a href="#">
-        <div data-cell="E2" style="top: 250px; left: 100px;">
-        </div>
-      </a>
-      <a href="#">
-        <div data-cell="F2" style="top: 300px; left: 100px;">
-        </div>
-      </a>
-      <a href="#">
-        <div data-cell="G2" style="top: 350px; left: 100px;">
-        </div>
-      </a>
-      <a href="#">
-        <div data-cell="H2" style="top: 400px; left: 100px;">
-        </div>
-      </a>
-      <a href="#">
-        <div data-cell="I2" style="top: 450px; left: 100px;">
-        </div>
-        <a href="#">
-          <div data-cell="J2" style="top: 500px; left: 100px;">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="playingBoard">
+          <div data-label="label" style="top: 50px; left: 0px;">
+            <p>A</p>
           </div>
-        </a>
+          <div data-label="label" style="top: 100px; left: 0px;">
+            <p>B</p>
+          </div>
+          <div data-label="label" style="top: 150px; left: 0px;">
+            <p>C</p>
+          </div>
+          <div data-label="label" style="top: 200px; left: 0px;">
+            <p>D</p>
+          </div>
+          <div data-label="label" style="top: 250px; left: 0px;">
+            <p>E</p>
+          </div>
+          <div data-label="label" style="top: 300px; left: 0px;">
+            <p>F</p>
+          </div>
+          <div data-label="label" style="top: 350px; left: 0px;">
+            <p>G</p>
+          </div>
+          <div data-label="label" style="top: 400px; left: 0px;">
+            <p>H</p>
+          </div>
+          <div data-label="label" style="top: 450px; left: 0px;">
+            <p>I</p>
+          </div>
+          <div data-label="label" style="top: 500px; left: 0px;">
+            <p>J</p>
+          </div>
+          <div data-label="label" style="top: 0px; left: 50px;">
+            <p>1</p>
+          </div>
 
-        <div data-label="label" style="top: 0px; left: 150px;">
-          <p>3</p>
-        </div>
-        <a href="#">
-          <div data-cell="A3" style="top: 50px; left: 150px;">
+          <a href="#">
+            <div data-cell="A1" style="top: 50px; left: 50px;">
+            </div>
+          </a>
+          <a href="#">
+            <div data-cell="B1" style="top: 100px; left: 50px;">
+            </div>
+          </a>
+          <a href="#">
+            <div data-cell="C1" style="top: 150px; left: 50px;">
+            </div>
+          </a>
+          <a href="#">
+            <div data-cell="D1" style="top: 200px; left: 50px;">
+            </div>
+          </a>
+          <a href="#">
+            <div data-cell="E1" style="top: 250px; left: 50px;">
+            </div>
+          </a>
+          <a href="#">
+
+            <div data-cell="F1" style="top: 300px; left: 50px;">
+            </div>
+          </a>
+          <a href="#">
+
+            <div data-cell="G1" style="top: 350px; left: 50px;">
+            </div>
+          </a>
+          <a href="#">
+
+            <div data-cell="H1" style="top: 400px; left: 50px;">
+            </div>
+          </a>
+          <a href="#">
+
+            <div data-cell="I1" style="top: 450px; left: 50px;">
+            </div>
+          </a>
+          <a href="#">
+
+            <div data-cell="J1" style="top: 500px; left: 50px;">
+            </div>
+
+          </a>
+          <div data-label="label" style="top: 0px; left: 100px;">
+            <p>2</p>
           </div>
           <a href="#">
-            <div data-cell="B3" style="top: 100px; left: 150px;">
+            <div data-cell="A2" style="top: 50px; left: 100px;">
+            </div>
+          </a>
+          <a href="#">
+
+            <div data-cell="B2" style="top: 100px; left: 100px;">
+            </div>
+          </a>
+          <a href="#">
+
+            <div data-cell="C2" style="top: 150px; left: 100px;">
+            </div>
+          </a>
+          <a href="#">
+            <div data-cell="D2" style="top: 200px; left: 100px;">
+            </div>
+          </a>
+          <a href="#">
+            <div data-cell="E2" style="top: 250px; left: 100px;">
+            </div>
+          </a>
+          <a href="#">
+            <div data-cell="F2" style="top: 300px; left: 100px;">
+            </div>
+          </a>
+          <a href="#">
+            <div data-cell="G2" style="top: 350px; left: 100px;">
+            </div>
+          </a>
+          <a href="#">
+            <div data-cell="H2" style="top: 400px; left: 100px;">
+            </div>
+          </a>
+          <a href="#">
+            <div data-cell="I2" style="top: 450px; left: 100px;">
             </div>
             <a href="#">
-              <div data-cell="C3" style="top: 150px; left: 150px;">
+              <div data-cell="J2" style="top: 500px; left: 100px;">
               </div>
             </a>
 
-            <a href="#">
-              <div data-cell="D3" style="top: 200px; left: 150px;">
-              </div>
-            </a>
-
-            <a href="#">
-              <div data-cell="E3" style="top: 250px; left: 150px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="F3" style="top: 300px; left: 150px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="G3" style="top: 350px; left: 150px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="H3" style="top: 400px; left: 150px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="I3" style="top: 450px; left: 150px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="J3" style="top: 500px; left: 150px;">
-              </div>
-            </a>
-
-            <div data-label="label" style="top: 0px; left: 200px;">
-              <p>4</p>
+            <div data-label="label" style="top: 0px; left: 150px;">
+              <p>3</p>
             </div>
             <a href="#">
-              <div data-cell="A4" style="top: 50px; left: 200px;">
+              <div data-cell="A3" style="top: 50px; left: 150px;">
               </div>
-            </a>
-            <a href="#">
-              <div data-cell="B4" style="top: 100px; left: 200px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="C4" style="top: 150px; left: 200px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="D4" style="top: 200px; left: 200px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="E4" style="top: 250px; left: 200px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="F4" style="top: 300px; left: 200px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="G4" style="top: 350px; left: 200px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="H4" style="top: 400px; left: 200px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="I4" style="top: 450px; left: 200px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="J4" style="top: 500px; left: 200px;">
-              </div>
-            </a>
+              <a href="#">
+                <div data-cell="B3" style="top: 100px; left: 150px;">
+                </div>
+                <a href="#">
+                  <div data-cell="C3" style="top: 150px; left: 150px;">
+                  </div>
+                </a>
 
-            <div data-label="label" style="top: 0px; left: 250px;">
-              <p>5</p>
-            </div>
-            <a href="#">
-              <div data-cell="A5" style="top: 50px; left: 250px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="B5" style="top: 100px; left: 250px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="C5" style="top: 150px; left: 250px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="D5" style="top: 200px; left: 250px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="E5" style="top: 250px; left: 250px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="F5" style="top: 300px; left: 250px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="G5" style="top: 350px; left: 250px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="H5" style="top: 400px; left: 250px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="I5" style="top: 450px; left: 250px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="J5" style="top: 500px; left: 250px;">
-              </div>
-            </a>
+                <a href="#">
+                  <div data-cell="D3" style="top: 200px; left: 150px;">
+                  </div>
+                </a>
 
-            <div data-label="label" style="top: 0px; left: 300px;">
-              <p>6</p>
-            </div>
-            <a href="#">
-              <div data-cell="A6" style="top: 50px; left: 300px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="B6" style="top: 100px; left: 300px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="C6" style="top: 150px; left: 300px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="D6" style="top: 200px; left: 300px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="E6" style="top: 250px; left: 300px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="F6" style="top: 300px; left: 300px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="G6" style="top: 350px; left: 300px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="H6" style="top: 400px; left: 300px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="I6" style="top: 450px; left: 300px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="J6" style="top: 500px; left: 300px;">
-              </div>
-            </a>
+                <a href="#">
+                  <div data-cell="E3" style="top: 250px; left: 150px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="F3" style="top: 300px; left: 150px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="G3" style="top: 350px; left: 150px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="H3" style="top: 400px; left: 150px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="I3" style="top: 450px; left: 150px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="J3" style="top: 500px; left: 150px;">
+                  </div>
+                </a>
+
+                <div data-label="label" style="top: 0px; left: 200px;">
+                  <p>4</p>
+                </div>
+                <a href="#">
+                  <div data-cell="A4" style="top: 50px; left: 200px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="B4" style="top: 100px; left: 200px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="C4" style="top: 150px; left: 200px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="D4" style="top: 200px; left: 200px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="E4" style="top: 250px; left: 200px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="F4" style="top: 300px; left: 200px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="G4" style="top: 350px; left: 200px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="H4" style="top: 400px; left: 200px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="I4" style="top: 450px; left: 200px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="J4" style="top: 500px; left: 200px;">
+                  </div>
+                </a>
+
+                <div data-label="label" style="top: 0px; left: 250px;">
+                  <p>5</p>
+                </div>
+                <a href="#">
+                  <div data-cell="A5" style="top: 50px; left: 250px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="B5" style="top: 100px; left: 250px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="C5" style="top: 150px; left: 250px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="D5" style="top: 200px; left: 250px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="E5" style="top: 250px; left: 250px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="F5" style="top: 300px; left: 250px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="G5" style="top: 350px; left: 250px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="H5" style="top: 400px; left: 250px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="I5" style="top: 450px; left: 250px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="J5" style="top: 500px; left: 250px;">
+                  </div>
+                </a>
+
+                <div data-label="label" style="top: 0px; left: 300px;">
+                  <p>6</p>
+                </div>
+                <a href="#">
+                  <div data-cell="A6" style="top: 50px; left: 300px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="B6" style="top: 100px; left: 300px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="C6" style="top: 150px; left: 300px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="D6" style="top: 200px; left: 300px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="E6" style="top: 250px; left: 300px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="F6" style="top: 300px; left: 300px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="G6" style="top: 350px; left: 300px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="H6" style="top: 400px; left: 300px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="I6" style="top: 450px; left: 300px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="J6" style="top: 500px; left: 300px;">
+                  </div>
+                </a>
 
 
-            <div data-label="label" style="top: 0px; left: 350px;">
-              <p>7</p>
-            </div>
-            <a href="#">
-              <div data-cell="A7" style="top: 50px; left: 350px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="B7" style="top: 100px; left: 350px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="C7" style="top: 150px; left: 350px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="D7" style="top: 200px; left: 350px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="E7" style="top: 250px; left: 350px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="F7" style="top: 300px; left: 350px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="G7" style="top: 350px; left: 350px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="H7" style="top: 400px; left: 350px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="I7" style="top: 450px; left: 350px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="J7" style="top: 500px; left: 350px;">
-              </div>
-            </a>
+                <div data-label="label" style="top: 0px; left: 350px;">
+                  <p>7</p>
+                </div>
+                <a href="#">
+                  <div data-cell="A7" style="top: 50px; left: 350px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="B7" style="top: 100px; left: 350px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="C7" style="top: 150px; left: 350px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="D7" style="top: 200px; left: 350px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="E7" style="top: 250px; left: 350px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="F7" style="top: 300px; left: 350px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="G7" style="top: 350px; left: 350px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="H7" style="top: 400px; left: 350px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="I7" style="top: 450px; left: 350px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="J7" style="top: 500px; left: 350px;">
+                  </div>
+                </a>
 
-            <div data-label="label" style="top: 0px; left: 400px;">
-              <p>8</p>
-            </div>
-            <a href="#">
-              <div data-cell="A8" style="top: 50px; left: 400px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="B8" style="top: 100px; left: 400px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="C8" style="top: 150px; left: 400px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="D8" style="top: 200px; left: 400px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="E8" style="top: 250px; left: 400px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="F8" style="top: 300px; left: 400px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="G8" style="top: 350px; left: 400px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="H8" style="top: 400px; left: 400px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="I8" style="top: 450px; left: 400px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="J8" style="top: 500px; left: 400px;">
-              </div>
-            </a>
+                <div data-label="label" style="top: 0px; left: 400px;">
+                  <p>8</p>
+                </div>
+                <a href="#">
+                  <div data-cell="A8" style="top: 50px; left: 400px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="B8" style="top: 100px; left: 400px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="C8" style="top: 150px; left: 400px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="D8" style="top: 200px; left: 400px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="E8" style="top: 250px; left: 400px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="F8" style="top: 300px; left: 400px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="G8" style="top: 350px; left: 400px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="H8" style="top: 400px; left: 400px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="I8" style="top: 450px; left: 400px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="J8" style="top: 500px; left: 400px;">
+                  </div>
+                </a>
 
-            <div data-label="label" style="top: 0px; left: 450px;">
-              <p>9</p>
-            </div>
-            <a href="#">
-              <div data-cell="A9" style="top: 50px; left: 450px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="B9" style="top: 100px; left: 450px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="C9" style="top: 150px; left: 450px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="D9" style="top: 200px; left: 450px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="E9" style="top: 250px; left: 450px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="F9" style="top: 300px; left: 450px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="G9" style="top: 350px; left: 450px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="H9" style="top: 400px; left: 450px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="I9" style="top: 450px; left: 450px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="J9" style="top: 500px; left: 450px;">
-              </div>
-            </a>
+                <div data-label="label" style="top: 0px; left: 450px;">
+                  <p>9</p>
+                </div>
+                <a href="#">
+                  <div data-cell="A9" style="top: 50px; left: 450px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="B9" style="top: 100px; left: 450px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="C9" style="top: 150px; left: 450px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="D9" style="top: 200px; left: 450px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="E9" style="top: 250px; left: 450px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="F9" style="top: 300px; left: 450px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="G9" style="top: 350px; left: 450px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="H9" style="top: 400px; left: 450px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="I9" style="top: 450px; left: 450px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="J9" style="top: 500px; left: 450px;">
+                  </div>
+                </a>
 
-            <div data-label="label" style="top: 0px; left: 500px;">
-              <p>10</p>
-            </div>
-            <a href="#">
-              <div data-cell="A10" style="top: 50px; left: 500px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="B10" style="top: 100px; left: 500px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="C10" style="top: 150px; left: 500px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="D10" style="top: 200px; left: 500px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="E10" style="top: 250px; left: 500px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="F10" style="top: 300px; left: 500px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="G10" style="top: 350px; left: 500px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="H10" style="top: 400px; left: 500px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="I10" style="top: 450px; left: 500px;">
-              </div>
-            </a>
-            <a href="#">
-              <div data-cell="J10" style="top: 500px; left: 500px;">
-              </div>
-            </a>
+                <div data-label="label" style="top: 0px; left: 500px;">
+                  <p>10</p>
+                </div>
+                <a href="#">
+                  <div data-cell="A10" style="top: 50px; left: 500px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="B10" style="top: 100px; left: 500px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="C10" style="top: 150px; left: 500px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="D10" style="top: 200px; left: 500px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="E10" style="top: 250px; left: 500px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="F10" style="top: 300px; left: 500px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="G10" style="top: 350px; left: 500px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="H10" style="top: 400px; left: 500px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="I10" style="top: 450px; left: 500px;">
+                  </div>
+                </a>
+                <a href="#">
+                  <div data-cell="J10" style="top: 500px; left: 500px;">
+                  </div>
+                </a>
+        </div>
+
+
+
+
+      </div>
+      <div class="col-md-6">
+        <div class="gamePlay">
+          <h2><span id="activePlayer"></span></h2>
+          <h3><span id="activeMessage"></span></h3>
+          <h3><span id="sunkMessage"></span></h3>
+          <h1><span id="gameWon"></span></h1>
+        </div>
+        </div>
+      </div>
     </div>
-
   </div>
-  <!-- Do not forget to ask other play to step away when building board -->
-
-
-  </div>
-
 </body>
-
-</html>
+</html>g
