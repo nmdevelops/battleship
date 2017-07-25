@@ -3,8 +3,8 @@
 // ||      Business Logic         ||
 // ||                             ||
 // =================================
-var p1Fleet = [];
-var p2Fleet = [];
+// var p1Fleet = [];
+// var p2Fleet = [];
 var whoseTurn = 1;
 var players = [];
 var firingGrid;
@@ -54,6 +54,8 @@ var retrieveBoardState = (function() {
 //   $("#activeMessage").empty();
 var updateGameSpace = (function() {
   $("#activePlayer").text(players[currentPlayer].commander);
+  $("#activeMessage").empty();
+  $("#sunkMessage").empty();
   retrieveBoardState(currentPlayer);
 })
 
@@ -150,7 +152,7 @@ var isHit = (function() {
 
   // These actions take place if a hit occured
   if (firingGridIsHit > 0) {
-    if (currentPlayer === "Player 1") {
+    if (currentPlayer === 0) {
       players[0].hits.push(firingGrid);
     } else {
       players[1].hits.push(firingGrid);
@@ -165,18 +167,16 @@ var isHit = (function() {
     // Determine if ship is Sunk
     if (players[currentPlayer].fleet[vesselHit].hits === players[currentPlayer].fleet[vesselHit].strength) {
       $("#sunkMessage").text("Ya'll are gonna fuckin drown on that " + players[currentPlayer].fleet[vesselHit].type);
-      players[0].shipsSunk += 1;
+      players[currentPlayer].shipsSunk += 1;
     }
     // Determine if game is over
-    if (players[0].shipsSunk === 5) {
-      console.log("You sunk their Fleet!");
+    if (players[currentPlayer].shipsSunk === 5) {
+      $("#gameWon").text("You sunk their Fleet!");
     }
-
     //Advance player Turn
     whoseTurn += 1;
     isWhoseTurn();
-
-  } else {
+} else {
     // These actions take place if there is a miss
     if (currentPlayer === 0) {
       players[0].misses.push(firingGrid);
@@ -184,11 +184,13 @@ var isHit = (function() {
       players[1].misses.push(firingGrid);
     }
     $("#activeMessage").text("Miss at firing grid");
-    // Turns Cell TEAL to indicate MISS
-    //advance player turn
+
+
+//advance player turn
     whoseTurn += 1;
     isWhoseTurn();
 
+// Turns Cell TEAL to indicate MISS
     $('[data-cell=' + firingGrid + ']').css({
       "background-color": 'teal'
     });
@@ -236,12 +238,7 @@ $(document).ready(function() {
 
   })
 
-  // Testing input replaced by graphic interaction
-  //   $("button#fireTorpedos").click(function() {
-  //     console.log("Fire le missiles!");
-  //     isHit();
-  //
-  //   })
+
 
 
 
@@ -257,7 +254,7 @@ $(document).ready(function() {
     firingGrid = this.children[0].dataset.cell;
     isWhoseTurn();
     isHit();
-    updateGameSpace();
+    setTimeout(function() {updateGameSpace()}, 3000);
     event.preventDefault();
   });
 })
