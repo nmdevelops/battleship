@@ -3,8 +3,6 @@
 // ||      Business Logic         ||
 // ||                             ||
 // =================================
-// var p1Fleet = [];
-// var p2Fleet = [];
 var whoseTurn = 1;
 var players = [];
 var firingGrid;
@@ -248,13 +246,17 @@ $(document).ready(function() {
   })
 
 
-
+  var clickDisabled = false;
   $("a").click(function(event) {
-    // alert(this.children[0].dataset.cell);
-    firingGrid = this.children[0].dataset.cell;
-    isWhoseTurn();
-    isHit();
-    setTimeout(function() {updateGameSpace()}, 3000);
     event.preventDefault();
+    if (clickDisabled === false) {
+      firingGrid = this.children[0].dataset.cell;
+      isWhoseTurn();
+      isHit();
+      clickDisabled = true;
+      setTimeout(function() {updateGameSpace(); clickDisabled = false;}, 3000);
+    }
+
+
   });
 })
