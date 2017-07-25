@@ -27,7 +27,7 @@ function Ship(commander, type, strength, grids, hits) {
 
 var retrieveBoardState = (function() {
 // set board to empty state -- change to transparent with final update
-  $(".playingBoard div").css({"background-color": 'blue'});
+  $(".playingBoard div").css({"background-color": 'transparent'});
 // format board for hits
   players[currentPlayer].hits.forEach(function(hit) {
     $('[data-cell=' + hit + ']').css({"background-color": 'red'});

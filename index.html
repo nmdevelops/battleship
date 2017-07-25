@@ -30,75 +30,74 @@
 
     <div class="inputs">
 
+      <div class="P1-inputs">
+        <form>
 
-    <div class="P1-inputs">
-      <form>
+          <div class="form-group">
+            <label>Carrier Grids  <input id="carrier-grid" type="text" name="P1,carrier,5" size="19" maxlength="18" placeholder="A1, A2, A3, A4, A5"></label>
+          </div>
+
+          <div class="form-group">
+            <label>Battleship Grids  <input id="battleship-grid" type="text" name="P1,battleship,4" size="16" maxlength="14" placeholder="A1, A2, A3, A4"></label>
+          </div>
+
+          <div class="form-group">
+            <label>Cruiser Grids   <input id="cruiser-grid" type="text" name="P1,cruiser,3" size="11" maxlength="10" placeholder="A1, A2, A3"></label>
+          </div>
+
+          <div class="form-group">
+            <label>Submarine Grids <input id="submarine-grid" type="text" name="P1,submarine,3" size="11" maxlength="10" placeholder="A1, A2, A3"></label>
+          </div>
+
+          <div class="form-group">
+            <label>Destroyer Grids <input id="destroyer-grid" type="text" name="P1,destroyer,2" size="7" maxlength="6" placeholder="A1, A2"></label>
+          </div>
+          <!-- button to be removed after submit functionality built -->
+          <!-- <button id="P1-input-test" type="button" name="button">TEST SUBMIT</button> -->
+
+          <!-- This code was added to display P1 fleet layout for review before confirmation -> -->
+
+          <div class="P1-shipShow">
+            <ul></ul>
+            <button id="p1-shipShow-confirm" class="btn" type="button">P1 Confirm Deployment!</button>
+          </div>
+      </div>
+      <!-- This code was added to display P1 fleet layout for review before confirmation <- -->
+      <div class="P2-inputs">
+
+
+
+        <!-- This code was added to display P2 fleet layout for review before confirmation -> -->
 
         <div class="form-group">
-          <label>Carrier Grids  <input id="carrier-grid" type="text" name="P1,carrier,5" size="19" maxlength="18" placeholder="A1, A2, A3, A4, A5"></label>
+          <label>Carrier Grids  <input id="carrier-grid" type="text" name="P2,carrier,5" size="19" maxlength="18" placeholder="A1, A2, A3, A4, A5"></label>
         </div>
 
         <div class="form-group">
-          <label>Battleship Grids  <input id="battleship-grid" type="text" name="P1,battleship,4" size="16" maxlength="14" placeholder="A1, A2, A3, A4"></label>
+          <label>Battleship Grids  <input id="battleship-grid" type="text" name="P2,battleship,4" size="16" maxlength="14" placeholder="A1, A2, A3, A4"></label>
         </div>
 
         <div class="form-group">
-          <label>Cruiser Grids   <input id="cruiser-grid" type="text" name="P1,cruiser,3" size="11" maxlength="10" placeholder="A1, A2, A3"></label>
+          <label>Cruiser Grids   <input id="cruiser-grid" type="text" name="P2,cruiser,3" size="11" maxlength="10" placeholder="A1, A2, A3"></label>
         </div>
 
         <div class="form-group">
-          <label>Submarine Grids <input id="submarine-grid" type="text" name="P1,submarine,3" size="11" maxlength="10" placeholder="A1, A2, A3"></label>
+          <label>Submarine Grids <input id="submarine-grid" type="text" name="P2,submarine,3" size="11" maxlength="10" placeholder="A1, A2, A3"></label>
         </div>
 
         <div class="form-group">
-          <label>Destroyer Grids <input id="destroyer-grid" type="text" name="P1,destroyer,2" size="7" maxlength="6" placeholder="A1, A2"></label>
+          <label>Destroyer Grids <input id="destroyer-grid" type="text" name="P2,destroyer,2" size="7" maxlength="6" placeholder="A1, A2"></label>
         </div>
         <!-- button to be removed after submit functionality built -->
-        <!-- <button id="P1-input-test" type="button" name="button">TEST SUBMIT</button> -->
+        <!-- <button id="P2-input-test" type="button" name="button">TEST SUBMIT</button> -->
 
-        <!-- This code was added to display P1 fleet layout for review before confirmation -> -->
-
-        <div class="P1-shipShow">
+        <div class="P2-shipShow">
           <ul></ul>
-          <button id="p1-shipShow-confirm" class="btn" type="button">P1 Confirm Deployment!</button>
+          <button id="p2-shipShow-confirm" class="btn" type="button">P2 Confirm Deployment!</button>
         </div>
+      </div>
+      </form>
     </div>
-    <!-- This code was added to display P1 fleet layout for review before confirmation <- -->
-    <div class="P2-inputs">
-
-
-
-      <!-- This code was added to display P2 fleet layout for review before confirmation -> -->
-
-      <div class="form-group">
-        <label>Carrier Grids  <input id="carrier-grid" type="text" name="P2,carrier,5" size="19" maxlength="18" placeholder="A1, A2, A3, A4, A5"></label>
-      </div>
-
-      <div class="form-group">
-        <label>Battleship Grids  <input id="battleship-grid" type="text" name="P2,battleship,4" size="16" maxlength="14" placeholder="A1, A2, A3, A4"></label>
-      </div>
-
-      <div class="form-group">
-        <label>Cruiser Grids   <input id="cruiser-grid" type="text" name="P2,cruiser,3" size="11" maxlength="10" placeholder="A1, A2, A3"></label>
-      </div>
-
-      <div class="form-group">
-        <label>Submarine Grids <input id="submarine-grid" type="text" name="P2,submarine,3" size="11" maxlength="10" placeholder="A1, A2, A3"></label>
-      </div>
-
-      <div class="form-group">
-        <label>Destroyer Grids <input id="destroyer-grid" type="text" name="P2,destroyer,2" size="7" maxlength="6" placeholder="A1, A2"></label>
-      </div>
-      <!-- button to be removed after submit functionality built -->
-      <!-- <button id="P2-input-test" type="button" name="button">TEST SUBMIT</button> -->
-
-      <div class="P2-shipShow">
-        <ul></ul>
-        <button id="p2-shipShow-confirm" class="btn" type="button">P2 Confirm Deployment!</button>
-      </div>
-    </div>
-    </form>
-</div>
     <!-- This code was added to display P2 fleet inputs and layout for review before confirmation <- -->
 
 
@@ -108,11 +107,11 @@
 
 
     <div class="p1-gamePlay">
-    <h2><span id="activePlayer"></span></h2>
-    <h3><span id="activeMessage"></span></h3>
-    <h3><span id="sunkMessage"></span></h3>
-    <h1><span id="gameWon"></span></h1>
-<!-- test input removed using graphic through js
+      <h2><span id="activePlayer"></span></h2>
+      <h3><span id="activeMessage"></span></h3>
+      <h3><span id="sunkMessage"></span></h3>
+      <h1><span id="gameWon"></span></h1>
+      <!-- test input removed using graphic through js
       <div class="form-group">
         <label>Enter firing coordinates!  <input id="p1-firing-grid" type="text" size="3" maxlength="2"></label>
       </div>
@@ -123,7 +122,7 @@
 
     <div class="playingBoard">
 
-      <div data-label="label"  style="top: 50px; left: 0px;">
+      <div data-label="label" style="top: 50px; left: 0px;">
         <p>A</p>
       </div>
       <div data-label="label" style="top: 100px; left: 0px;">
@@ -236,7 +235,7 @@
         <div data-cell="F2" style="top: 300px; left: 100px;">
         </div>
       </a>
-      <a href="#" >
+      <a href="#">
         <div data-cell="G2" style="top: 350px; left: 100px;">
         </div>
       </a>
