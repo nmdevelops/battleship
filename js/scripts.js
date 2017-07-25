@@ -182,27 +182,38 @@ $(document).ready(function() {
     $(".P1-inputs").show();
     $(".splash").hide();
     $(".playingBoard").show();
+    var gameState = p1Setup;
+
   })
 // Proceed from P1 setup to P2 setup
   $("button#p1-shipShow-confirm").click(function() {
     p1Confirm();
+    gameState = p2Setup;
   })
 // Proceed from P2 setup to Gamespace
   $("button#p2-shipShow-confirm").click(function() {
     isWhoseTurn();
     gameSetup();
     updateGameSpace();
+    gameState = gamePlay;
   })
 
   var clickDisabled = false;
   $("a").click(function(event) {
     event.preventDefault();
     if (clickDisabled === false) {
-      firingGrid = this.children[0].dataset.cell;
-      isWhoseTurn();
-      isHit();
-      clickDisabled = true;
-      setTimeout(function() {updateGameSpace(); clickDisabled = false;}, 3000);
+      if (gameState === "p1Setup") {
+
+      } else if (gameState === "p2Setup") {
+
+      } else if (gameState === "gamePlay") {
+        firingGrid = this.children[0].dataset.cell;
+        isWhoseTurn();
+        isHit();
+        clickDisabled = true;
+        setTimeout(function() {updateGameSpace(); clickDisabled = false;}, 3000);
+      }
+
     }
   });
 })
