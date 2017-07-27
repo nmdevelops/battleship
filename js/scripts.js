@@ -115,9 +115,9 @@ var isHit = (function() {
 // These actions take place if a hit exists
   if (firingGridIsHit > 0) {
     if (currentPlayer === 0) {
-      players[1].hits.push(firingGrid);
-    } else {
       players[0].hits.push(firingGrid);
+    } else {
+      players[1].hits.push(firingGrid);
     }
 
   $("#activeMessage").text("HIT!");
