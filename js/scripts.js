@@ -44,6 +44,7 @@ var retrieveBoardState = (function() {
 var updateGameSpace = (function() {
   $("#activePlayer").text(players[currentPlayer].commander);
   $("#activeMessage").empty();
+  $("#activeMessage").text("Select grid square to fire on enemy");
   $("#sunkMessage").empty();
   retrieveBoardState(currentPlayer);
 })
@@ -77,21 +78,6 @@ var gameSetup = (function() {
     }
   })
 
-  //Fleet setup display not currently implemented
-  // P1 Display Fleet
-  // for (var i = 0; i < players[0].fleet.length; i++) {
-  //   var displayType = players[0].fleet[i].type;
-  //   var displayGrids = players[0].fleet[i].grids.toString();
-  //
-  //   $(".P1-shipShow ul").append("<li>" + displayType + displayGrids + "</li>")
-  // }
-  // P2 Display Fleet
-  // for (var n = 0; n < players[1].fleet.length; n++) {
-  //   var displayType = players[1].fleet[n].type;
-  //   var displayGrids = players[1].fleet[n].grids.toString();
-  //
-  //   $(".P2-shipShow ul").append("<li>" + displayType + displayGrids + "</li>")
-  // }
 });  //End gamesetup function
 
 //To be run after inputting ship placement for P1, cycles to P2 inputs
@@ -171,6 +157,22 @@ var isHit = (function() {
 // TEST INPUTS
 // A1, A2, A3, A4, A5
 // B1, B2, B3, B4, B5
+
+
+// A2, B2, C2, D2, E2
+// A10, A9, A8, A7
+// J8, I8, H8
+// G1, G2, G3
+// E5, E6
+//
+// A8, B8, C8, D8, E8
+// H5, H6, H7, H8
+// G1, G2, G3
+// F9, E9, D9
+// B1, B2
+
+
+
 // =================================
 // ||                             ||
 // ||    User Interface Logic     ||
@@ -182,38 +184,27 @@ $(document).ready(function() {
     $(".P1-inputs").show();
     $(".splash").hide();
     $(".playingBoard").show();
-    var gameState = p1Setup;
-
   })
 // Proceed from P1 setup to P2 setup
   $("button#p1-shipShow-confirm").click(function() {
     p1Confirm();
-    gameState = "p2Setup";
   })
 // Proceed from P2 setup to Gamespace
   $("button#p2-shipShow-confirm").click(function() {
     isWhoseTurn();
     gameSetup();
     updateGameSpace();
-    gameState = "gamePlay";
   })
 
   var clickDisabled = false;
   $("a").click(function(event) {
     event.preventDefault();
     if (clickDisabled === false) {
-      if (gameState === "p1Setup") {
-
-      } else if (gameState === "p2Setup") {
-
-      } else if (gameState === "gamePlay") {
         firingGrid = this.children[0].dataset.cell;
         isWhoseTurn();
         isHit();
         clickDisabled = true;
         setTimeout(function() {updateGameSpace(); clickDisabled = false;}, 3000);
       }
-
-    }
+    })
   });
-})
