@@ -9,6 +9,9 @@ var firingGrid;
 var vesselHit;
 var currentPlayer;
 var currentOpponent;
+var gameState;
+var shipGrids = []; //remove if graphic input not used for setup...
+var shipGrid; //remove if graphic input not used for setup...
 
 function Player(commander, fleet, shipsSunk, hits, misses) {
   this.commander = commander;
@@ -44,9 +47,43 @@ var retrieveBoardState = (function() {
 var updateGameSpace = (function() {
   $("#activePlayer").text(players[currentPlayer].commander);
   $("#activeMessage").empty();
+  $("#activeMessage").text("Click on a grid square to fire at your enemy!");
   $("#sunkMessage").empty();
   retrieveBoardState(currentPlayer);
 })
+
+var resetGameboardFormat = (function() {
+  // Turns Cell transparent to reset visual
+  $(".playingBoard div").css({"background-color": 'transparent'});
+})
+
+//Function to replace game setup to facilitate graphical input of ships placement
+var shipSetup = (function() {
+  //Instantiate new player objects
+
+  players[0] = new Player("P1", [], 0, [], []);
+  players[1] = new Player("P2", [], 0, [], []);
+  //Collect input values for ship placement
+
+})
+
+var setupFormat = (function() {
+  // Turns Cell Gray to indicate placement
+    $('[data-cell=' + shipGrid + ']').css({"background-color": 'gray'});
+})
+
+var instantiateShip = (function() {
+  var shipHits = 0;
+  //Instantiate ship objects
+      var newShip = new Ship(shipCommander, shipType, shipStrength, shipGrids, shipHits)
+  // and push to correct fleets
+      if (shipCommander === "P1") {
+        players[0].fleet.push(newShip);
+      } else {
+        players[1].fleet.push(newShip);
+      }
+    })
+
 
 //Instantiate new player objects
 var gameSetup = (function() {
@@ -158,7 +195,7 @@ var isHit = (function() {
     } else {
       players[1].misses.push(firingGrid);
     }
-    $("#activeMessage").text("Miss at firing grid");
+    $("#activeMessage").text("You missed!");
 // Turns Cell WHITE to indicate MISS
     $('[data-cell=' + firingGrid + ']').css({"background-color": 'white'});
 //advance player turn
@@ -182,20 +219,29 @@ $(document).ready(function() {
     $(".P1-inputs").show();
     $(".splash").hide();
     $(".playingBoard").show();
-    var gameState = p1Setup;
+    gameState = "p1Setup";
+    shipCommander = "P1"
 
   })
+// Ship deploy
+$("button#deploy").click(function() {
+
+
+})
 // Proceed from P1 setup to P2 setup
   $("button#p1-shipShow-confirm").click(function() {
     p1Confirm();
-    gameState = p2Setup;
+    resetGameboardFormat();
+
+    gameState = "p2Setup";
+    shipCommander = "P2";
   })
 // Proceed from P2 setup to Gamespace
   $("button#p2-shipShow-confirm").click(function() {
     isWhoseTurn();
     gameSetup();
     updateGameSpace();
-    gameState = gamePlay;
+    gameState = "gamePlay";
   })
 
   var clickDisabled = false;
@@ -203,6 +249,12 @@ $(document).ready(function() {
     event.preventDefault();
     if (clickDisabled === false) {
       if (gameState === "p1Setup") {
+        shipGrids.push(this.children[0].dataset.cell);
+        shipGrid = this.children[0].dataset.cell
+        console.log(shipGrids);
+        setupFormat();
+
+        //shipStrength = this.children[0].dataset.strength;
 
       } else if (gameState === "p2Setup") {
 
