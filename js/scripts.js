@@ -188,14 +188,14 @@ $(document).ready(function() {
 // Proceed from P1 setup to P2 setup
   $("button#p1-shipShow-confirm").click(function() {
     p1Confirm();
-    gameState = p2Setup;
+    gameState = "p2Setup";
   })
 // Proceed from P2 setup to Gamespace
   $("button#p2-shipShow-confirm").click(function() {
     isWhoseTurn();
     gameSetup();
     updateGameSpace();
-    gameState = gamePlay;
+    gameState = "gamePlay";
   })
 
   var clickDisabled = false;
